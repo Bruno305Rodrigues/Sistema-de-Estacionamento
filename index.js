@@ -22,11 +22,16 @@ function entradaDeCarro(carro) {
     }
 }
 
-function saidaDeCarro(placa, tempo,cor,ano) {
+function saidaDeCarro(placa, tempo, cor, ano,condicao) {
+    var total = 0;
+    var valorFinal = 0;
     for (vaga in vagas) {
         if (vagas[vaga] !== null && vagas[vaga].placa === placa) {
             vagas[vaga] = null;
-            console.log("Total a pagar:", tempoDePermanecia(tempo) - ((tempoDePermanecia(tempo)* descontoAnodoCarro(ano))/100) - descontoCor(cor));   //descontoCor(cor)  );
+            total = (tempoDePermanecia(tempo) - ((tempoDePermanecia(tempo) * descontoAnodoCarro(ano)) / 100) - descontoCor(cor)); 
+            valorFinal = total - ((total *descontoFidelidade(condicao))/100);
+            console.log("Total a pagar:" , valorFinal.toFixed(2));
+
             break;
         }
     }
@@ -113,12 +118,12 @@ function tempoDePermanecia(tempo) {
 function descontoCor(cor) {
     if (cor === "Azul") {
         return 10;
-    }else if(cor === "Branco"){
+    } else if (cor === "Branco") {
         return 15;
 
-    }else if(cor === "Preto"){
+    } else if (cor === "Preto") {
         return 20;
-    }else{
+    } else {
         return 0;
     }
 
@@ -126,18 +131,25 @@ function descontoCor(cor) {
 
 }
 
-function descontoAnodoCarro(ano){
-    if(ano >=2010 && ano <= 2015 ){
+function descontoAnodoCarro(ano) {
+    if (ano >= 2010 && ano <= 2015) {
         return 15;
-    }else if(ano >=2000 && ano < 210){
+    } else if (ano >= 2000 && ano < 210) {
         return 20;
-    }else if(ano < 2000){
+    } else if (ano < 2000) {
         return 30;
-    }else{
+    } else {
         return 0;
     }
 }
 
+function descontoFidelidade(condicao) {
+    if (condicao === "S") {
+        return 50;
+    } else {
+        return 0;
+    }
+}
 
 
 
@@ -171,9 +183,9 @@ console.log("-------------");
 
 consultaVaga("b2");
 
-saidaDeCarro(2, 120, "Azul", 1975);
+saidaDeCarro(2, 120, "Azul", 1975,"S");
 console.log(vagas);
-;
+
 
 
 
