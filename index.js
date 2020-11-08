@@ -22,6 +22,7 @@ function entradaDeCarro(carro) {
     }
 }
 
+
 function saidaDeCarro(placa, tempo, cor, ano,condicao) {
     var total = 0;
     var valorFinal = 0;
@@ -38,6 +39,7 @@ function saidaDeCarro(placa, tempo, cor, ano,condicao) {
 
 }
 
+
 function consultaVaga(nomeVaga) {
 
     for (vaga in vagas) {
@@ -53,6 +55,7 @@ function consultaVaga(nomeVaga) {
         }
     }
 }
+
 
 function pesquisaPorPlaca(placa) {
     var carroEncontrado = false;
@@ -77,6 +80,7 @@ function pesquisaPorPlaca(placa) {
 }
 
 
+
 function pesquisarPorModelo(modelo) {
     var carroEncontrado = false;
     for (vaga in vagas) {
@@ -91,6 +95,8 @@ function pesquisarPorModelo(modelo) {
         console.log("Modelo não encontrado.")
     }
 }
+
+
 
 function pesquisarPorCor(cor) {
     var carroEncontrado = false;
@@ -110,10 +116,13 @@ function pesquisarPorCor(cor) {
 
 
 
+
 function tempoDePermanecia(tempo) {
     var valor = (tempo * 100 / 60)
     return valor.toFixed(2);
 }
+
+
 
 function descontoCor(cor) {
     if (cor === "Azul") {
@@ -131,6 +140,8 @@ function descontoCor(cor) {
 
 }
 
+
+
 function descontoAnodoCarro(ano) {
     if (ano >= 2010 && ano <= 2015) {
         return 15;
@@ -143,6 +154,8 @@ function descontoAnodoCarro(ano) {
     }
 }
 
+
+
 function descontoFidelidade(condicao) {
     if (condicao === "S") {
         return 50;
@@ -153,7 +166,7 @@ function descontoFidelidade(condicao) {
 
 
 
-
+//Execução do código
 
 entradaDeCarro({ modelo: "Fusca", ano: 1973, placa: 1, cor: "azul" });
 entradaDeCarro({ modelo: "Monza", ano: 1975, placa: 2, cor: "preto" });
@@ -162,15 +175,11 @@ entradaDeCarro({ modelo: "Ferrari", ano: 1975, placa: 4, cor: "preto" });
 entradaDeCarro({ modelo: "Corsa", ano: 1973, placa: 5, cor: "azul" });
 entradaDeCarro({ modelo: "Corolla", ano: 1975, placa: 6, cor: "preto" });
 
-//entradaDeCarro({modelo: "Chevette", ano: 1975, placa: 2, cor: "preto"});
-//entradaDeCarro({modelo: "Camaro", ano: 2018, placa: 2, cor: "prata"});
-//saidaDeCarro(2);
-//saidaDeCarro(4);
+
 entradaDeCarro({ modelo: "Camaro", ano: 2018, placa: 2, cor: "prata" });
 
 
 
-//pesquisaCarro("c1");
 pesquisaPorPlaca(1);
 pesquisaPorPlaca(5);
 
